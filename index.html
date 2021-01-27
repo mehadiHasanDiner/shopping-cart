@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="coverMinus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="coverInput" type="text" class="form-control text-center" value="1">
+                           <button id="coverPlus" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$59</h5>
+                        <h5>$ <span id="phoneCover">59</span> </h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -81,7 +81,7 @@
    <script>
       // + sign running = iPhone 11 128GB
       const increasePhone = document.getElementById('plausPhone');
-      increasePhone.addEventListener('click', function () {
+      increasePhone.addEventListener('click', function() {
          const totalOfPhone = document.getElementById('phoneCalculate').value;
          const totalNumberOfPhone = parseFloat(totalOfPhone);
          const additionOfPhone = totalNumberOfPhone + 1;
@@ -104,7 +104,7 @@
 
       // - sign running = iPhone 11 128GB
       const decreasePhone = document.getElementById('minusPhone');
-      decreasePhone.addEventListener('click', function () {
+      decreasePhone.addEventListener('click', function() {
          const totalOfPhone = document.getElementById('phoneCalculate').value;
          const totalNumberOfPhone = parseFloat(totalOfPhone);
          const additionOfPhone = totalNumberOfPhone - 1;
@@ -124,6 +124,56 @@
          document.getElementById('subtotal').innerText = subtotalTotalMinus;
 
       })
+
+
+
+
+       // + sign running = iPhone cover
+      const coverPlusAmount = document.getElementById('coverPlus');
+      coverPlusAmount.addEventListener('click', function() {
+         const coverAmount = document.getElementById('coverInput').value;
+         const coverAmountNumber = parseFloat(coverAmount);
+         const coverPrice = coverAmountNumber + 1;
+         document.getElementById('coverInput').value = coverPrice; 
+    
+         // // cover price
+         const phoneCover = document.getElementById('phoneCover').innerText;
+         const phoneCoverNumber = parseFloat(phoneCover);
+         const phoneCoverPrice = phoneCoverNumber +59;
+         document.getElementById('phoneCover').innerText = phoneCoverPrice;
+
+         // // cover price Subtotal
+         const subtotal = document.getElementById('subtotal').innerText;
+         const subtotalNumber = parseFloat(subtotal);
+         const subtotalTotal = subtotalNumber +59;
+         document.getElementById('subtotal').innerText = subtotalTotal;
+      })
+
+     
+
+      // // - sign running = iPhone 11 128GB
+      // const decreasePhone = document.getElementById('minusPhone');
+      // decreasePhone.addEventListener('click', function () {
+      //    const totalOfPhone = document.getElementById('phoneCalculate').value;
+      //    const totalNumberOfPhone = parseFloat(totalOfPhone);
+      //    const additionOfPhone = totalNumberOfPhone - 1;
+      //    document.getElementById('phoneCalculate').value = additionOfPhone;
+
+      //    // phone price
+      //    const phonePriceRemoving = document.getElementById('phonePrice').innerText;
+      //    const phonePriceNumber = parseFloat(phonePriceRemoving);
+      //    const totalLessPhonePrice = phonePriceNumber - 1219;
+      //    document.getElementById('phonePrice').innerText = totalLessPhonePrice;
+
+         
+      //    // phone price minus Subtotal
+      //    const subtotalMinus = document.getElementById('subtotal').innerText;
+      //    const subtotalMinusNumber = parseFloat(subtotalMinus);
+      //    const subtotalTotalMinus = subtotalMinusNumber -1219;
+      //    document.getElementById('subtotal').innerText = subtotalTotalMinus;
+
+      // })
+
 
 
    </script>
