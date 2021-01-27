@@ -26,8 +26,8 @@
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
                            <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <input id="numberOfPhone" type="text" class="form-control text-center" value="1">
+                           <button id="addPhone" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$1219</h5>
                         <img src="images/remove.png" alt="" class="remove-item">
@@ -77,6 +77,20 @@
          </div>
       </div>
    </section>
+
+   <script>
+      const increasePhone = document.getElementById('addPhone');
+      increasePhone.addEventListener('click', function () {
+         const totalOfPhone = document.getElementById('numberOfPhone').value;
+         const totalNumberOfPhone = parseFloat(totalOfPhone);
+
+      })
+
+      function getInputNumber(id) {
+         
+         return totalNumberOfPhone;
+      }
+   </script>
 </body>
 
 </html>
