@@ -79,51 +79,71 @@
    </section>
 
    <script>
-      // + sign running = iPhone 11 128GB
-      const increasePhone = document.getElementById('plausPhone');
-      increasePhone.addEventListener('click', function() {
-         const totalOfPhone = document.getElementById('phoneCalculate').value;
-         const totalNumberOfPhone = parseFloat(totalOfPhone);
-         const additionOfPhone = totalNumberOfPhone + 1;
-         document.getElementById('phoneCalculate').value = additionOfPhone; 
+   // + sign running = iPhone 11 128GB
+      document.getElementById('plausPhone').addEventListener('click', function() {
+         handleProductChange(true);
+         })
+         document.getElementById('minusPhone').addEventListener('click', function() {
+         handleProductChange(false);
 
-         // phone price
-         const phonePriceAdding = document.getElementById('phonePrice').innerText;
-         const phonePriceNumber = parseFloat(phonePriceAdding);
-         const totalPhonePrice = phonePriceNumber +1219;
-         document.getElementById('phonePrice').innerText = totalPhonePrice;
+         })
 
-         // phone price Subtotal
-         const subtotal = document.getElementById('subtotal').innerText;
-         const subtotalNumber = parseFloat(subtotal);
-         const subtotalTotal = subtotalNumber +1219;
-         document.getElementById('subtotal').innerText = subtotalTotal;
+         function handleProductChange(isIncrease){
+            const totalOfPhone = document.getElementById('phoneCalculate').value;
+            const totalNumberOfPhone = parseFloat(totalOfPhone);
+            let additionOfPhone = totalNumberOfPhone;
+            if (isIncrease == true) {
+            const additionOfPhone = totalNumberOfPhone + 1;
+            }
+            if (isIncrease == false && additionOfPhone > 0) {
+            const additionOfPhone = totalNumberOfPhone - 1;
+            }
+            document.getElementById('phoneCalculate').value = additionOfPhone; 
+
+            // phone price
+            const totalPhonePrice = additionOfPhone *1219;
+            document.getElementById('phonePrice').innerText = totalPhonePrice;
+         }
+
+   //    // + sign running = iPhone 11 128GB
+   //   document.getElementById('plausPhone').addEventListener('click', function() {
+   //       const totalOfPhone = document.getElementById('phoneCalculate').value;
+   //       const totalNumberOfPhone = parseFloat(totalOfPhone);
+   //       const additionOfPhone = totalNumberOfPhone + 1;
+   //       document.getElementById('phoneCalculate').value = additionOfPhone; 
+
+   //       // phone price
+   //       const totalPhonePrice = additionOfPhone *1219;
+   //       document.getElementById('phonePrice').innerText = totalPhonePrice;
+
+   //       // phone price Subtotal
+   //       const subtotal = document.getElementById('subtotal').innerText;
+   //       const subtotalNumber = parseFloat(subtotal);
+   //       const subtotalTotal = subtotalNumber +1219;
+   //       document.getElementById('subtotal').innerText = subtotalTotal;
 
 
-      })
+   //    })
 
-      // - sign running = iPhone 11 128GB
-      const decreasePhone = document.getElementById('minusPhone');
-      decreasePhone.addEventListener('click', function() {
-         const totalOfPhone = document.getElementById('phoneCalculate').value;
-         const totalNumberOfPhone = parseFloat(totalOfPhone);
-         const additionOfPhone = totalNumberOfPhone - 1;
-         document.getElementById('phoneCalculate').value = additionOfPhone;
+   //    // - sign running = iPhone 11 128GB
+   //    document.getElementById('minusPhone').addEventListener('click', function() {
+   //       const totalOfPhone = document.getElementById('phoneCalculate').value;
+   //       const totalNumberOfPhone = parseFloat(totalOfPhone);
+   //       const additionOfPhone = totalNumberOfPhone - 1;
+   //       document.getElementById('phoneCalculate').value = additionOfPhone;
 
-         // phone price
-         const phonePriceRemoving = document.getElementById('phonePrice').innerText;
-         const phonePriceNumber = parseFloat(phonePriceRemoving);
-         const totalLessPhonePrice = phonePriceNumber - 1219;
-         document.getElementById('phonePrice').innerText = totalLessPhonePrice;
+   //       // phone price
+   //       const totalLessPhonePrice = additionOfPhone * 1219;
+   //       document.getElementById('phonePrice').innerText = totalLessPhonePrice;
 
          
-         // phone price minus Subtotal
-         const subtotalMinus = document.getElementById('subtotal').innerText;
-         const subtotalMinusNumber = parseFloat(subtotalMinus);
-         const subtotalTotalMinus = subtotalMinusNumber -1219;
-         document.getElementById('subtotal').innerText = subtotalTotalMinus;
+   //       // phone price minus Subtotal
+   //       const subtotalMinus = document.getElementById('subtotal').innerText;
+   //       const subtotalMinusNumber = parseFloat(subtotalMinus);
+   //       const subtotalTotalMinus = subtotalMinusNumber -1219;
+   //       document.getElementById('subtotal').innerText = subtotalTotalMinus;
 
-      })
+   //    })
 
 
 
