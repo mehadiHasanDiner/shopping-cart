@@ -25,9 +25,9 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button onclick="handleProductChange(false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <button onclick="handlePhoneChange(false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
                            <input id="phoneCalculate" type="text" class="form-control text-center" value="1">
-                           <button onclick="handleProductChange(true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button onclick="handlePhoneChange(true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$ <span id="phonePrice">1219</span> </h5>
                         <img src="images/remove.png" alt="" class="remove-item">
@@ -43,9 +43,9 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button id="coverMinus" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <button onclick="handleCoverChange(false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
                            <input id="coverInput" type="text" class="form-control text-center" value="1">
-                           <button id="coverPlus" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button onclick="handleCoverChange(true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
                         <h5>$ <span id="phoneCover">59</span> </h5>
@@ -82,7 +82,7 @@
    // + sign running = iPhone 11 128GB
 
 
-         function handleProductChange(isIncrease){
+         function handlePhoneChange(isIncrease){
             const totalOfPhone = document.getElementById('phoneCalculate').value;
             const totalNumberOfPhone = parseFloat(totalOfPhone);
             let additionOfPhone = totalNumberOfPhone;
@@ -99,69 +99,39 @@
             document.getElementById('phonePrice').innerText = totalPhonePrice;
          }
 
-   //    // + sign running = iPhone 11 128GB
-   //   document.getElementById('plausPhone').addEventListener('click', function() {
-   //       const totalOfPhone = document.getElementById('phoneCalculate').value;
-   //       const totalNumberOfPhone = parseFloat(totalOfPhone);
-   //       const additionOfPhone = totalNumberOfPhone + 1;
-   //       document.getElementById('phoneCalculate').value = additionOfPhone; 
-
-   //       // phone price
-   //       const totalPhonePrice = additionOfPhone *1219;
-   //       document.getElementById('phonePrice').innerText = totalPhonePrice;
-
-   //       // phone price Subtotal
-   //       const subtotal = document.getElementById('subtotal').innerText;
-   //       const subtotalNumber = parseFloat(subtotal);
-   //       const subtotalTotal = subtotalNumber +1219;
-   //       document.getElementById('subtotal').innerText = subtotalTotal;
 
 
-   //    })
+         function handleCoverChange(isIncrease){
+            const coverAmount = document.getElementById('coverInput').value;
+            const coverAmountNumber = parseFloat(coverAmount);
+            let coverPrice = coverAmountNumber;
+            if (isIncrease == true) {
+               coverPrice = coverAmountNumber + 1;
+            }
+            if (isIncrease == false && coverPrice > 0) {
+               coverPrice = coverAmountNumber - 1;
+            }
+            document.getElementById('coverInput').value = coverPrice; 
 
-   //    // - sign running = iPhone 11 128GB
-   //    document.getElementById('minusPhone').addEventListener('click', function() {
-   //       const totalOfPhone = document.getElementById('phoneCalculate').value;
-   //       const totalNumberOfPhone = parseFloat(totalOfPhone);
-   //       const additionOfPhone = totalNumberOfPhone - 1;
-   //       document.getElementById('phoneCalculate').value = additionOfPhone;
-
-   //       // phone price
-   //       const totalLessPhonePrice = additionOfPhone * 1219;
-   //       document.getElementById('phonePrice').innerText = totalLessPhonePrice;
-
-         
-   //       // phone price minus Subtotal
-   //       const subtotalMinus = document.getElementById('subtotal').innerText;
-   //       const subtotalMinusNumber = parseFloat(subtotalMinus);
-   //       const subtotalTotalMinus = subtotalMinusNumber -1219;
-   //       document.getElementById('subtotal').innerText = subtotalTotalMinus;
-
-   //    })
+            // phone price
+            const phoneCoverPrice = coverPrice *59;
+            document.getElementById('phoneCover').innerText = phoneCoverPrice;
+         }
+ 
 
 
-
-
-       // + sign running = iPhone cover
-      const coverPlusAmount = document.getElementById('coverPlus');
-      coverPlusAmount.addEventListener('click', function() {
-         const coverAmount = document.getElementById('coverInput').value;
-         const coverAmountNumber = parseFloat(coverAmount);
-         const coverPrice = coverAmountNumber + 1;
-         document.getElementById('coverInput').value = coverPrice; 
+      //  // + sign running = iPhone cover
+      // document.getElementById('coverPlus').addEventListener('click', function() {
+      //    const coverAmount = document.getElementById('coverInput').value;
+      //    const coverAmountNumber = parseFloat(coverAmount);
+      //    const coverPrice = coverAmountNumber + 1;
+      //    document.getElementById('coverInput').value = coverPrice; 
     
-         // // cover price
-         const phoneCover = document.getElementById('phoneCover').innerText;
-         const phoneCoverNumber = parseFloat(phoneCover);
-         const phoneCoverPrice = phoneCoverNumber +59;
-         document.getElementById('phoneCover').innerText = phoneCoverPrice;
+      //    // // cover price
+      //    const phoneCoverPrice = coverPrice * 59;
+      //    document.getElementById('phoneCover').innerText = phoneCoverPrice;
 
-         // // cover price Subtotal
-         const subtotal = document.getElementById('subtotal').innerText;
-         const subtotalNumber = parseFloat(subtotal);
-         const subtotalTotal = subtotalNumber +59;
-         document.getElementById('subtotal').innerText = subtotalTotal;
-      })
+      // })
 
      
 
@@ -185,6 +155,13 @@
       //    const subtotalMinusNumber = parseFloat(subtotalMinus);
       //    const subtotalTotalMinus = subtotalMinusNumber -1219;
       //    document.getElementById('subtotal').innerText = subtotalTotalMinus;
+      
+         // // cover price Subtotal
+         
+         // const subtotal = document.getElementById('subtotal').innerText;
+         // const subtotalNumber = parseFloat(subtotal);
+         // const subtotalTotal = subtotalNumber +59;
+         // document.getElementById('subtotal').innerText = subtotalTotal;
 
       // })
 
