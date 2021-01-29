@@ -25,9 +25,9 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button onclick="handlePhoneChange(false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input id="phoneCalculate" type="text" class="form-control text-center" value="1">
-                           <button onclick="handlePhoneChange(true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button onclick="handleProductChange('phone', false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="phoneInput" type="text" class="form-control text-center" value="1">
+                           <button onclick="handleProductChange('phone', true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
                         <h5>$ <span id="phonePrice">1219</span> </h5>
                         <img src="images/remove.png" alt="" class="remove-item">
@@ -43,12 +43,12 @@
                      </div>
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button onclick="handleCoverChange(false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <button onclick="handleProductChange('cover', false)" class="btn btn-default"><i class="fas fa-minus"></i></button>
                            <input id="coverInput" type="text" class="form-control text-center" value="1">
-                           <button onclick="handleCoverChange(true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button onclick="handleProductChange('cover', true)" class="btn btn-default"><i class="fas fa-plus"></i></button>
 
                         </div>
-                        <h5>$ <span id="phoneCover">59</span> </h5>
+                        <h5>$ <span id="coverPrice">59</span> </h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -82,90 +82,61 @@
    // + sign running = iPhone 11 128GB
 
 
-         function handlePhoneChange(isIncrease){
-            const totalOfPhone = document.getElementById('phoneCalculate').value;
-            const totalNumberOfPhone = parseFloat(totalOfPhone);
-            let additionOfPhone = totalNumberOfPhone;
-            if (isIncrease == true) {
-             additionOfPhone = totalNumberOfPhone + 1;
-            }
-            if (isIncrease == false && additionOfPhone > 0) {
-             additionOfPhone = totalNumberOfPhone - 1;
-            }
-            document.getElementById('phoneCalculate').value = additionOfPhone; 
-
-            // phone price
-            const totalPhonePrice = additionOfPhone *1219;
-            document.getElementById('phonePrice').innerText = totalPhonePrice;
-         }
-
-
-
-         function handleCoverChange(isIncrease){
-            const coverAmount = document.getElementById('coverInput').value;
+   function handleProductChange(product, isIncrease){
+            const coverAmount = document.getElementById(product + 'Input').value;
             const coverAmountNumber = parseFloat(coverAmount);
-            let coverPrice = coverAmountNumber;
+            let productNewPrice = coverAmountNumber;
             if (isIncrease == true) {
-               coverPrice = coverAmountNumber + 1;
+               productNewPrice = coverAmountNumber + 1;
             }
-            if (isIncrease == false && coverPrice > 0) {
-               coverPrice = coverAmountNumber - 1;
+            if (isIncrease == false && coverAmountNumber > 0) {
+               productNewPrice = coverAmountNumber - 1;
             }
-            document.getElementById('coverInput').value = coverPrice; 
-
-            // phone price
-            const phoneCoverPrice = coverPrice *59;
-            document.getElementById('phoneCover').innerText = phoneCoverPrice;
+            document.getElementById(product + 'Input').value = productNewPrice; 
+            // const phoneCoverPrice = coverPrice *59;
+            let productTotal = 0;
+            if(product == 'phone'){
+               productTotal = productNewPrice *1219
+            }
+            if(product == 'cover'){
+               productTotal = productNewPrice *59
+            }
+            document.getElementById(product + 'Price').innerText = productTotal;
          }
  
 
-
-      //  // + sign running = iPhone cover
-      // document.getElementById('coverPlus').addEventListener('click', function() {
-      //    const coverAmount = document.getElementById('coverInput').value;
-      //    const coverAmountNumber = parseFloat(coverAmount);
-      //    const coverPrice = coverAmountNumber + 1;
-      //    document.getElementById('coverInput').value = coverPrice; 
-    
-      //    // // cover price
-      //    const phoneCoverPrice = coverPrice * 59;
-      //    document.getElementById('phoneCover').innerText = phoneCoverPrice;
-
-      // })
-
-     
-
-      // // - sign running = iPhone 11 128GB
-      // const decreasePhone = document.getElementById('minusPhone');
-      // decreasePhone.addEventListener('click', function () {
-      //    const totalOfPhone = document.getElementById('phoneCalculate').value;
-      //    const totalNumberOfPhone = parseFloat(totalOfPhone);
-      //    const additionOfPhone = totalNumberOfPhone - 1;
-      //    document.getElementById('phoneCalculate').value = additionOfPhone;
-
-      //    // phone price
-      //    const phonePriceRemoving = document.getElementById('phonePrice').innerText;
-      //    const phonePriceNumber = parseFloat(phonePriceRemoving);
-      //    const totalLessPhonePrice = phonePriceNumber - 1219;
-      //    document.getElementById('phonePrice').innerText = totalLessPhonePrice;
-
-         
-      //    // phone price minus Subtotal
-      //    const subtotalMinus = document.getElementById('subtotal').innerText;
-      //    const subtotalMinusNumber = parseFloat(subtotalMinus);
-      //    const subtotalTotalMinus = subtotalMinusNumber -1219;
-      //    document.getElementById('subtotal').innerText = subtotalTotalMinus;
-      
-         // // cover price Subtotal
-         
-         // const subtotal = document.getElementById('subtotal').innerText;
-         // const subtotalNumber = parseFloat(subtotal);
-         // const subtotalTotal = subtotalNumber +59;
-         // document.getElementById('subtotal').innerText = subtotalTotal;
-
-      // })
+         // function handlePhoneChange(product, isIncrease){
+         //    const totalOfPhone = document.getElementById('phoneCalculate').value;
+         //    const totalNumberOfPhone = parseFloat(totalOfPhone);
+         //    let additionOfPhone = totalNumberOfPhone;
+         //    if (isIncrease == true) {
+         //     additionOfPhone = totalNumberOfPhone + 1;
+         //    }
+         //    if (isIncrease == false && additionOfPhone > 0) {
+         //     additionOfPhone = totalNumberOfPhone - 1;
+         //    }
+         //    document.getElementById('phoneCalculate').value = additionOfPhone; 
+         //    const totalPhonePrice = additionOfPhone *1219;
+         //    document.getElementById('phonePrice').innerText = totalPhonePrice;
+         // }
 
 
+
+         // function handleCoverChange(product, isIncrease){
+         //    const coverAmount = document.getElementById('coverInput').value;
+         //    const coverAmountNumber = parseFloat(coverAmount);
+         //    let coverPrice = coverAmountNumber;
+         //    if (isIncrease == true) {
+         //       coverPrice = coverAmountNumber + 1;
+         //    }
+         //    if (isIncrease == false && coverPrice > 0) {
+         //       coverPrice = coverAmountNumber - 1;
+         //    }
+         //    document.getElementById('coverInput').value = coverPrice; 
+         //    const phoneCoverPrice = coverPrice *59;
+         //    document.getElementById('phoneCover').innerText = phoneCoverPrice;
+         // }
+ 
 
    </script>
 </body>
