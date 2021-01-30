@@ -102,6 +102,19 @@
                productTotal = productNewPrice *59
             }
             document.getElementById(product + 'Price').innerText = productTotal;
+
+            calculateTotal()
+         }
+
+         function calculateTotal(){
+            const phoneCount = document.getElementById('phoneInput');
+            const phoneCountNumber = parseFloat(phoneCount.value);
+
+            const coverCount = document.getElementById('coverInput');
+            const coverCountNumber = parseFloat(coverCount.value);
+
+            const totalPrice = phoneCount * 1219 + coverCount * 59;
+            document.getElementById('subtotal').innerText = totalPrice;
          }
  
 
