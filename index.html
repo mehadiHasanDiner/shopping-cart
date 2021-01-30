@@ -84,7 +84,7 @@
 
    function handleProductChange(product, isIncrease){
             const coverAmount = document.getElementById(product + 'Input').value;
-            const coverAmountNumber = parseFloat(coverAmount);
+            const coverAmountNumber = parseInt(coverAmount);
             let productNewPrice = coverAmountNumber;
             if (isIncrease == true) {
                productNewPrice = coverAmountNumber + 1;
@@ -103,52 +103,19 @@
             }
             document.getElementById(product + 'Price').innerText = productTotal;
 
-            calculateTotal()
+            calculateTotal();
          }
 
          function calculateTotal(){
             const phoneCount = document.getElementById('phoneInput');
-            const phoneCountNumber = parseFloat(phoneCount.value);
+            const phoneCountNumber = parseInt(phoneCount.value);
 
             const coverCount = document.getElementById('coverInput');
-            const coverCountNumber = parseFloat(coverCount.value);
+            const coverCountNumber = parseInt(coverCount.value);
 
-            const totalPrice = phoneCount * 1219 + coverCount * 59;
+            const totalPrice = phoneCountNumber * 1219 + coverCountNumber * 59;
             document.getElementById('subtotal').innerText = totalPrice;
          }
- 
-
-         // function handlePhoneChange(product, isIncrease){
-         //    const totalOfPhone = document.getElementById('phoneCalculate').value;
-         //    const totalNumberOfPhone = parseFloat(totalOfPhone);
-         //    let additionOfPhone = totalNumberOfPhone;
-         //    if (isIncrease == true) {
-         //     additionOfPhone = totalNumberOfPhone + 1;
-         //    }
-         //    if (isIncrease == false && additionOfPhone > 0) {
-         //     additionOfPhone = totalNumberOfPhone - 1;
-         //    }
-         //    document.getElementById('phoneCalculate').value = additionOfPhone; 
-         //    const totalPhonePrice = additionOfPhone *1219;
-         //    document.getElementById('phonePrice').innerText = totalPhonePrice;
-         // }
-
-
-
-         // function handleCoverChange(product, isIncrease){
-         //    const coverAmount = document.getElementById('coverInput').value;
-         //    const coverAmountNumber = parseFloat(coverAmount);
-         //    let coverPrice = coverAmountNumber;
-         //    if (isIncrease == true) {
-         //       coverPrice = coverAmountNumber + 1;
-         //    }
-         //    if (isIncrease == false && coverPrice > 0) {
-         //       coverPrice = coverAmountNumber - 1;
-         //    }
-         //    document.getElementById('coverInput').value = coverPrice; 
-         //    const phoneCoverPrice = coverPrice *59;
-         //    document.getElementById('phoneCover').innerText = phoneCoverPrice;
-         // }
  
 
    </script>
